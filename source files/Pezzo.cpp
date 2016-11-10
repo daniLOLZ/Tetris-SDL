@@ -1,4 +1,4 @@
-#include "Applicazione.h"
+#include "../header files/Applicazione.h"
 
 Piece::Piece(int type, int orX, int orY) {
 	this->_type = type;
@@ -52,11 +52,6 @@ void Piece::draw() {
 }
 
 bool Piece::moveDown() {
-
-//	std::cout << "Prima della modifica   -   All'interno di moveDown \n";
-//	std::cout << "griglia: " << TetrisApp::griglia[2][7] << std::endl;
-//	std::cout << "supportoGriglia: " << TetrisApp::supportoGriglia[2][7] << std::endl;
-
 
 	if (_checkInRange(1, 0)) {
 		this->_originX++;

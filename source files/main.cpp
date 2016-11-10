@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Superficie.h"
-#include "Applicazione.h"
+#include "../header files/Superficie.h"
+#include "../header files/Applicazione.h"
 
 
 int main(int argc, char* argv[]) {

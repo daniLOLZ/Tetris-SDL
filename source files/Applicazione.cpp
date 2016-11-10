@@ -1,7 +1,8 @@
 #include <iostream>
-#include "Applicazione.h"
+#include "../header files/Applicazione.h"
 
 #define FPS 30
+
 // *** DEFINIZIONE DELLE VARIABILI DICHIARATE IN Applicazione.h ***
 char ** TetrisApp::griglia;
 char ** TetrisApp::supportoGriglia; 

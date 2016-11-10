@@ -1,10 +1,9 @@
-#include "Applicazione.h"
+#include "../header files/Applicazione.h"
 
 void TetrisApp::onRender() {	
 
 	SDL_RenderClear(theRenderer);
 	
-
 	// Disegna la griglia blocchetto per blocchetto
 	for (int i = 0; i < HEIGHT; i++) {
 		for (int j = 2; j < WIDTH + 2; j++) {
@@ -31,9 +30,6 @@ void TetrisApp::onRender() {
 			}
 		}
 	}
-						 
-
-
-
+	
 	SDL_RenderPresent(theRenderer);
 }

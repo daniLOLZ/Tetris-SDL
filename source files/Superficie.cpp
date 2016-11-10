@@ -1,5 +1,5 @@
 
-#include "Superficie.h"
+#include "../header files/Superficie.h"
 
 Superficie::Superficie() {
 }

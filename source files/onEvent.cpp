@@ -1,11 +1,9 @@
-#include "Applicazione.h"
+#include "../header files/Applicazione.h"
 
 void TetrisApp::onEvent(SDL_Event *evento) {
 	if (evento->type == SDL_QUIT) {
 		_running = false;
 	}
-	// Test shite
-
 /*	if (evento.type == SDL_KEYDOWN) {
 		switch (evento.key.keysym.sym)
 		{
@@ -62,6 +60,8 @@ void TetrisApp::onEvent(SDL_Event *evento) {
 				Score += 4;
 				numMoveDown++;
 			}
+			SDL_PumpEvents();
+			SDL_FlushEvent(SDL_KEYDOWN);
 			canDescend = false;
 			break;
 		case SDLK_RETURN:
@@ -71,11 +71,10 @@ void TetrisApp::onEvent(SDL_Event *evento) {
 					numMoveDown++;
 				}
 				canDescend = false;
+				SDL_PumpEvents();
+				SDL_FlushEvent(SDL_KEYDOWN);
 			}
-/*			else {
-				canExit = true;
-			}
-*/			break;
+			break;
 		case SDLK_ESCAPE:
 			_running = false;
 			break;

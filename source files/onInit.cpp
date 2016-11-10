@@ -1,4 +1,4 @@
-#include "Applicazione.h"
+#include "../header files/Applicazione.h"
 
 
 
@@ -15,9 +15,9 @@ bool TetrisApp::onInit() {
 
 	// Richiede la grandezza desiderata della griglia
 	// Lo faccio prima di inizializzare la finestra così l'unica cosa sullo schermo è il prompt
-	std::cout << "\n ***** INSERISCI LA LARGHEZZA DELLA GRIGLIA ( >= 6 ) ***** \n              ";
+	std::cout << "\n ***** INSERISCI LA LARGHEZZA DELLA GRIGLIA ( >= 6 ) default: 10 ***** \n              ";
 	std::cin >> WIDTH;
-	std::cout << "\n ***** INSERISCI L'ALTEZZA DELLA GRIGLIA ( >= 6 ) ***** \n              ";
+	std::cout << "\n ***** INSERISCI L'ALTEZZA DELLA GRIGLIA ( >= 6 ) default: 20 ***** \n              ";
 	std::cin >> HEIGHT;
 	
 	
@@ -44,25 +44,25 @@ bool TetrisApp::onInit() {
 
 
 	// Crea le texture, usando la superficie di appoggio
-	if ((appoggio = Superficie::onLoad("Yellow Tile.bmp", supFinestra->format->format)) == NULL) {
+	if ((appoggio = Superficie::onLoad("Texture/Yellow Tile.bmp", supFinestra->format->format)) == NULL) {
 		std::cerr << "Couldn't load yellow tile" << std::endl;
 		return false;
 	}
 	yellowBlock = SDL_CreateTextureFromSurface(theRenderer, appoggio);
 
-	if ((appoggio = Superficie::onLoad("Green Tile.bmp", supFinestra->format->format)) == NULL) {
+	if ((appoggio = Superficie::onLoad("Texture/Green Tile.bmp", supFinestra->format->format)) == NULL) {
 		std::cerr << "Couldn't load green tile" << std::endl;
 		return false;
 	}
 	greenBlock = SDL_CreateTextureFromSurface(theRenderer, appoggio);
 
-	if ((appoggio = Superficie::onLoad("Grey Tile.bmp", supFinestra->format->format)) == NULL) {
+	if ((appoggio = Superficie::onLoad("Texture/Grey Tile.bmp", supFinestra->format->format)) == NULL) {
 		std::cerr << "Couldn't load grey tile" << std::endl;
 		return false;
 	}
 	greyBlock = SDL_CreateTextureFromSurface(theRenderer, appoggio);
 
-	if ((appoggio = Superficie::onLoad("Blank Tile.bmp", supFinestra->format->format)) == NULL) {
+	if ((appoggio = Superficie::onLoad("Texture/Blank Tile.bmp", supFinestra->format->format)) == NULL) {
 		std::cerr << "Couldn't load black tile" << std::endl;
 		return false;
 	}
@@ -102,7 +102,7 @@ bool TetrisApp::onInit() {
 		}
 	}
 
-	_distBordoVerticale = 40;						//
+	_distBordoVerticale = 20;						//
 	_distBordoOrizzontale = 40;						//	Valori desiderati per la distanza
 	_distGriglia_Successivo = 20;					//	dai vari bordi
 	_distBordo_Successivo = (WINDOW_H / 2) - 20;	//
@@ -111,7 +111,7 @@ bool TetrisApp::onInit() {
 	// Troviamo delle misure che non permettono alla griglia di uscire fuori dai bordi della finestra
 	// Se la distanza che si puà utilizzare orizzontalmente è maggiore di quella che si
 	// può usare verticalmente, scegliamo la seconda
-	int usableY = (WINDOW_H - (_distBordoVerticale * 2) - 20 * 2) / HEIGHT;
+	int usableY = (WINDOW_H - (_distBordoVerticale * 2) - 10*2) / HEIGHT;
 	int usableX = (WINDOW_W - (_distBordoOrizzontale * 2) - 5*24) / WIDTH;
 	int usableSpace; // = usableX < usableY ? usableX : usableY;
 	// SI aggiustano i valori della distanza dai bordi così che la griglia risulti centrata

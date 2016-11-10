@@ -1,4 +1,4 @@
-#include "Applicazione.h"
+#include "../header files/Applicazione.h"
 
 int checkLines() {
 	// Check which lines got completed
@@ -33,11 +33,11 @@ void TetrisApp::onLoop() {
 
 	if (!canDescend) {
 		curPiece.~Piece();
-		std::cout << " Nuovo Pezzo \n\n :D\n";
 		if (numMoveDown == 0) { // Se non è riuscito a scendere mai, termina il programma
 			continua = false;
 			gameLost = true;
 			_running = false;
+			return; 
 		}
 		ultimeLinee = checkLines();
 		linesCompleted += ultimeLinee;
